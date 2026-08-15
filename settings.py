@@ -1,5 +1,6 @@
 # Definir colores (RGB)
 BLANCO = (245, 245, 245)
+AMARILLO = (240, 250, 10)
 GRIS_FONDO = (60, 60, 60)
 GRIS_CUADRICULA = (130, 130, 130)
 ROJO = (210, 65, 5)
