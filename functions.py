@@ -59,13 +59,23 @@ def dibuja_x(pygame, pantalla, casilla_index, color=VERDE):
         (x * SIZE_CASILLA + pad, y * SIZE_CASILLA + SIZE_CASILLA - pad), GROSOR)
 
 # =========================================================================
+def dibuja_o(pygame, pantalla, casilla_index, color=VERDE):
+    """Dibuja la X en base al INDEX fijo del tablero, no del ratón"""
+    # Convertir el índice del tablero de nuevo a coordenadas de cuadrícula (x, y)
+    x = casilla_index % DIM_CUADRICULA[0]
+    y = casilla_index // DIM_CUADRICULA[0]
+
+    pygame.draw.circle(pantalla, color,
+        (x * SIZE_CASILLA + SIZE_CASILLA // 2, y * SIZE_CASILLA + SIZE_CASILLA // 2), SIZE_CASILLA // 2.3, GROSOR)
+
+# =========================================================================
 def dibuja_tablero_dinamicamente(pygame, pantalla, array_tablero):
     # Iteramos usando el INDEX para saber exactamente DONDE dibujar
     for index in range(TOTAL_CASILLAS):
         if array_tablero[index] == 1:
             dibuja_x(pygame, pantalla, index, VERDE)
         elif array_tablero[index] == 2:
-            dibuja_x(pygame, pantalla, index, ROJO)
+            dibuja_o(pygame, pantalla, index, ROJO)
 
 # =========================================================================
 def tirada_IA(random, turno, array_tablero):
