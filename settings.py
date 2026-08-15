@@ -1,0 +1,16 @@
+# Definir colores (RGB)
+BLANCO = (245, 245, 245)
+GRIS_FONDO = (60, 60, 60)
+GRIS_CUADRICULA = (130, 130, 130)
+ROJO = (210, 65, 5)
+AZUL = (0, 50, 200)
+VERDE = (20, 220, 0)
+
+# Constantes:
+SIZE_CASILLA = 200
+DIM_CUADRICULA = (3, 3)
+SIZE_PANTALLA = (SIZE_CASILLA * DIM_CUADRICULA[0], SIZE_CASILLA * DIM_CUADRICULA[1])
+TOTAL_CASILLAS = DIM_CUADRICULA[0] * DIM_CUADRICULA[1]
+GROSOR = 20 # Reducido un poco para que se vea mejor dentro de la casilla
+FPS = 60
+
