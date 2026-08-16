@@ -9,6 +9,7 @@ def check_event(pygame, sys, turno, tirada_jugador_hecha, array_tablero, resulta
             pygame.quit()
             sys.exit()
 
+        # Pulsar ENTER para jugar otra partida:
         if (event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) and resultado != 0:
             rejugar = True
         
@@ -103,6 +104,7 @@ def tirada_IA(random, turno, array_tablero):
             else:
                 array_backup[i] = 0 # Lo dejamos como estaba
 
+    # IA defiende:
     # Simulamos un tirada del jugador en todas las casillas posibles
     # y si vemos que hay 3 en raya, pues IA tira ahi, defendiendo:
     for i in range(TOTAL_CASILLAS):
@@ -116,6 +118,16 @@ def tirada_IA(random, turno, array_tablero):
             else:
                 array_backup[i] = 0 # Lo dejamos como estaba
 
+    # Ocupar casilla central si es posible:
+    suma = 0
+    for i in range(TOTAL_CASILLAS):
+        suma += array_tablero[i]
+
+    if suma < 2 and array_tablero[4] == 0:
+        array_tablero[4] = 2    # 2 representa la ficha de la IA
+        print(f"La IA ha elegido la casilla: 4 | Tablero: {array_tablero}")
+        return
+    
     # Como ultimo recurso, IA tira aleatorio:
     while True:
         casilla_rnd = random.randrange(TOTAL_CASILLAS)

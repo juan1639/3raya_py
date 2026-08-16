@@ -26,7 +26,8 @@ while True:
     tirada_hecha = False
 
     # Turno (True = Jugador | False = IA)
-    turno = True
+    #turno = True
+    turno = random.choice([True, False])
 
     # Inicializar tablero vacío [0,0,0,0,0,0,0,0,0]
     array_tablero = [0] * TOTAL_CASILLAS
